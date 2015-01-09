@@ -2,10 +2,10 @@
 
 Fetchify is a fork of Github's [window.fetch polyfill](https://github.com/github/fetch)
 
-It is primarily designed to be used within Node as part of a Browserify bundle. It is also tested and 
+It is adapted to be used primarily within Node as part of a Browserify bundle. It is also tested and 
 pluggable with various Promise implementations such as Bluebird and Q
 
-# window.fetch polyfill
+## window.fetch polyfill
 
 The global `fetch` function is an easier way to make web requests and handle
 responses than using an XMLHttpRequest. This polyfill is written as closely as
@@ -31,6 +31,8 @@ Example using [Bluebird](https://github.com/petkaantonov/bluebird)
 var Promise = require('bluebird');
 
 var fetch = require('../fetch')(Promise).fetch;
+
+//Headers, Request and Response are also exported
 var Headers = require('../fetch')(Promise).Headers;
 var Request = require('../fetch')(Promise).Request;
 var Response = require('../fetch')(Promise).Response;
@@ -53,7 +55,7 @@ var fetch = require('../fetch')(Promise).fetch;
 
 ### In the browser
 
-Fetchify also provides a browser polyfill build.
+Fetchify also provides a browser polyfill build (see the `dist` directory).
 
 If you don't want to globally polyfill a Promise impl, you can also inject it:
 
