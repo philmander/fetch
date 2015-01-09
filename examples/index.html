@@ -2,11 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <script src="../fetch.js"></script>
+  <script src="../node_modules/q/q.js"></script>
+  <script src="../dist/fetch.js"></script>
 </head>
 <body>
   <script>
-    var result = fetch('https://github.com')
+    fetch.promiseImpl(Q.Promise);
+    var result = fetch('data.json')
 
     result.then(function(response) {
       console.log('response', response)
