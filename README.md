@@ -1,3 +1,10 @@
+#Fetchify
+
+Fetchify is a fork of Github's [window.fetch polyfill](https://github.com/github/fetch)
+
+It is primarily designed to be used within Node as part of a Browserify bundle. It is also tested and 
+pluggable with various Promise implementations such as Bluebird and Q
+
 # window.fetch polyfill
 
 The global `fetch` function is an easier way to make web requests and handle
@@ -6,59 +13,28 @@ possible to the standard Fetch specification at https://fetch.spec.whatwg.org.
 
 ## Installation
 
-Available on [Bower](http://bower.io) as **fetch**.
+Install with `npm`.
 
 ```sh
-$ bower install fetch
+$ npm install fetchify --save
 ```
-
-You'll also need a Promise polyfill for older browsers.
-
-```sh
-$ bower install es6-promise
-```
-
-This can be also be installed with `npm`.
-
-```sh
-$ npm install github/fetch --save
-```
-
-### Using with npm and Browserify
-
-```js
-require('es6-promise').polyfill();
-require('fetch');
-```
-
-Note: if you install **fetch** with npm you won't be able to specify a fuzzy
-version or range of versions for **fetch** in your `package.json` as npm does
-not support installing fuzzy versions from modules not published on their
-registry.
-
-Instead, you can choose to install **fetch** at an exact specific version by
-changing `package.json` to:
-
-```
-"fetch": "https://github.com/github/fetch/archive/v0.1.0.tar.gz"
-```
-
-Alternatively, if you would prefer to install **fetch** at a fuzzy version
-you can install it via bower to install it and use the [debowerify transform](https://github.com/eugeneware/debowerify).
-
-Full worked examples of these two approaches to using **fetch** in Browserify are avalable:
-
-- [Fetch API + Browserify](https://github.com/matthew-andrews/fetch-browserify-demo)
-- [Fetch API + Browserify + Bower](https://github.com/matthew-andrews/fetch-browserify-bower-demo)
 
 ## Usage
 
 The `fetch` function supports any HTTP method. We'll focus on GET and POST
 example requests.
 
-### HTML
+### Node
+Example using [Bluebird](https://github.com/petkaantonov/bluebird)
 
-```javascript
+```javascript 
+var Promise = require('bluebird');
+
+var fetch = require('../fetch')(Promise).fetch;
+var Headers = require('../fetch')(Promise).Headers;
+var Request = require('../fetch')(Promise).Request;
+var Response = require('../fetch')(Promise).Response;
+
 fetch('/users.html')
   .then(function(response) {
     return response.text()
@@ -66,6 +42,30 @@ fetch('/users.html')
     document.body.innerHTML = body
   })
 ```
+
+You could also use [Q](https://github.com/kriskowal/q)
+
+```javascript 
+var Promise = require('q').Promise;
+
+var fetch = require('../fetch')(Promise).fetch;
+```
+
+### In the browser
+
+Fetchify also provides a browser polyfill build.
+
+If you don't want to globally polyfill a Promise impl, you can also inject it:
+
+```html
+<script src="fetch.min.js"></script>
+<script>
+    fetch.promiseImpl(Q.Promise);
+    var result = fetch('data.json')
+</script>
+```
+
+## More examples
 
 ### JSON
 
