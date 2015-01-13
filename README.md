@@ -30,12 +30,12 @@ Example using [Bluebird](https://github.com/petkaantonov/bluebird)
 ```javascript 
 var Promise = require('bluebird');
 
-var fetch = require('../fetch')(Promise).fetch;
+var fetch = require('fetchify')(Promise).fetch;
 
 //Headers, Request and Response are also exported
-var Headers = require('../fetch')(Promise).Headers;
-var Request = require('../fetch')(Promise).Request;
-var Response = require('../fetch')(Promise).Response;
+var Headers = require('fetchify')(Promise).Headers;
+var Request = require('fetchify')(Promise).Request;
+var Response = require('fetchify')(Promise).Response;
 
 fetch('/users.html')
   .then(function(response) {
@@ -50,7 +50,7 @@ You could also use [Q](https://github.com/kriskowal/q)
 ```javascript 
 var Promise = require('q').Promise;
 
-var fetch = require('../fetch')(Promise).fetch;
+var fetch = require('fetchify')(Promise).fetch;
 ```
 
 ### In the browser
