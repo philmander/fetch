@@ -151,7 +151,7 @@ describe('QFetch', function() {
     it('handles successful responses', function(done) {
 
         var self = this;
-        var status = [200, 201, 202, 203, 204, 304, 1223];
+        var status = [0, 200, 201, 202, 203, 204, 304, 1223];
         var promises = [];
         status.forEach(function(status) {
             self.server.handle = function (request) {

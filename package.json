@@ -1,6 +1,6 @@
 {
   "name": "fetchify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/philmander/fetch",
   "author": "Phil Mander <philip.mander@gmail.com>",
   "description": "A window.fetch JavaScript polyfill designed for Browserify",
@@ -9,6 +9,9 @@
     "url": "https://github.com/philmander/fetch.git"
   },
   "main": "fetch",
+  "scripts" : {
+      "test" : "gulp test"
+  },
   "dependencies": {},
   "devDependencies": {
     "bluebird": "^2.6.2",

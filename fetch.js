@@ -172,7 +172,7 @@ Request.prototype.fetch = function () {
             var status = (xhr.status === 1223) ? 204 : xhr.status;
 
             //edit fork, allow 0 as successful response code.
-            if (status < 100 || status > 599) {
+            if (status !== 0 && (status < 100 || status > 599)) {
                 reject(new TypeError('Network request failed'));
                 return;
             }
