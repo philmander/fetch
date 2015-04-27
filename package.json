@@ -6,14 +6,14 @@
   "description": "A window.fetch JavaScript polyfill designed for Browserify",
   "keywords": [
     "browser",
-    "require",
-    "commonjs",
     "browserify",
+    "commonjs",
     "fetch",
-    "whatwg",
     "github",
+    "javascript",
     "npm",
-    "javascript"
+    "require",
+    "whatwg"
   ],
   "repository": {
     "type": "git",
