@@ -4,6 +4,17 @@
   "homepage": "https://github.com/philmander/fetch",
   "author": "Phil Mander <philip.mander@gmail.com>",
   "description": "A window.fetch JavaScript polyfill designed for Browserify",
+  "keywords": [
+    "browser",
+    "browserify",
+    "commonjs",
+    "fetch",
+    "github",
+    "javascript",
+    "npm",
+    "require",
+    "whatwg"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/philmander/fetchify.git"
