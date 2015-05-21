@@ -6,7 +6,7 @@
   "description": "A window.fetch JavaScript polyfill designed for Browserify",
   "repository": {
     "type": "git",
-    "url": "https://github.com/philmander/fetch.git"
+    "url": "https://github.com/philmander/fetchify.git"
   },
   "main": "fetch",
   "scripts" : {
