@@ -195,6 +195,9 @@ Request.prototype.fetch = function () {
                 xhr.setRequestHeader(name, value);
             });
         });
+        if (!!self.credentials) {
+            xhr.withCredentials = true;
+        }
 
         xhr.send((self._body === undefined) ? null : self._body);
     });
